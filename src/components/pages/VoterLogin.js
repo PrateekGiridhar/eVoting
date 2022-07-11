@@ -97,7 +97,6 @@ const VoterLogin = () => {
 		}
 		event.preventDefault();
 
-		window.alert(typeof(phoneNumber));
 		console.log(voterDetails);
 		if (voterDetails.length === 0) {
 			alert("Voter not found");

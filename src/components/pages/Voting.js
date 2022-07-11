@@ -62,7 +62,7 @@ const Voting = () => {
 			"=>",
 			voterVotedStatus.data().Voted,
 		);
-		if (voterVotedStatus.data().Voted === true) {
+		if (voterVotedStatus.data().Voted === false) {
 			navigate(`/voting-status:completed`);
 		}
 	};
@@ -129,7 +129,7 @@ const Voting = () => {
 	}, [voterDocID, wardnum]);
 
 	//Vote button
-	const castVote = (event,firstname,partyname) => {
+	const castVote = (event, firstname, partyname) => {
 		event.preventDefault();
 		if (window.confirm("Are you sure you want to vote for" + {firstname} + " of " + { partyname } + " ? ")) {
 			// Save it!
@@ -278,7 +278,7 @@ const Voting = () => {
 									}}
 									variant='contained'
 									onClick={(e) => {
-											castVote(e,doc.firstname,doc.partyname);
+											castVote(e, doc.firstname, doc.partyname);
 									}}>
 									Vote
 								</Button>

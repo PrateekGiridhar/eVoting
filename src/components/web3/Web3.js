@@ -46,7 +46,6 @@ export const loadVoterAccount = async (votername, voterID, phonenumber) => {
 			});
 		return true;
 	} catch (error) {
-		window.alert(error.message);
 		console.log(error.message);
 		return false;
 	}
@@ -62,7 +61,7 @@ export const vote = async (candidateName) => {
 		window.alert(
 			"The address " +
 				{ voterAddress } +
-				"has already voted, this window will close now.",
+				" has already voted, this window will close now.",
 		);
 		window.close();
 	} else {
