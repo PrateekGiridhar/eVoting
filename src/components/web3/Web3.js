@@ -46,8 +46,8 @@ export const loadVoterAccount = async (votername, voterID, phonenumber) => {
 			});
 		return true;
 	} catch (error) {
-		window.alert("Login failed. Please try again.");
-		console.log(error);
+		window.alert(error.message);
+		console.log(error.message);
 		return false;
 	}
 };
@@ -56,7 +56,7 @@ export const vote = async (candidateName) => {
 	const election = await loadContract();
 	const accounts = await window.web3.eth.getAccounts();
 	const voterAddress = accounts[0];
-	const voter = await election.voters(voterAddress);
+	const voter = await election.voters(voterAddress).call();
 
 	if (voter[4] === true) {
 		window.alert(

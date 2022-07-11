@@ -8,7 +8,7 @@ contract Election{
 
         string voterName;
         string voterID;
-        uint phoneNumber;
+        string phoneNumber;
         address voterAddress;
         bool voted;
         string vote;
@@ -25,7 +25,6 @@ contract Election{
 
         admin = msg.sender;
         voterCount = 0;
-        constituencyExist = false;
         
     }
 
@@ -42,7 +41,7 @@ contract Election{
     }
 
 
-    function voterLogin(string memory _voterName, string _voterID, uint _phoneNumber) public onlyVoter {
+    function voterLogin(string memory _voterName, string memory _voterID, string memory _phoneNumber) public onlyVoter {
          
         
         voters[msg.sender].voterName = _voterName;
@@ -56,7 +55,7 @@ contract Election{
     }
     
 
-    function vote(string _candidateName) public onlyVoter {
+    function vote(string memory _candidateName) public onlyVoter {
      
         require(!voters[msg.sender].voted, "Voter can vote only once.");
         voters[msg.sender].voted = true;

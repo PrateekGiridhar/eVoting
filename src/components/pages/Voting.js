@@ -51,7 +51,6 @@ const Voting = () => {
 	const [candidateDetails, setCandidateDetails] = useState([]);
 	const [party, setParty] = useState("");
 	const [candidateName, setCandidateName] = useState("");
-	const [voterIndex, setvoterIndex] = useState(0);
 
 	//Checking if the voter has already voted
 	const alreadyVoted = async () => {

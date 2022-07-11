@@ -97,6 +97,7 @@ const VoterLogin = () => {
 		}
 		event.preventDefault();
 
+		window.alert(typeof(phoneNumber));
 		console.log(voterDetails);
 		if (voterDetails.length === 0) {
 			alert("Voter not found");
@@ -140,7 +141,7 @@ const VoterLogin = () => {
 					console.log("User: ", user);
 					alert("Voter verified successfully");
 
-					if (loadVoterAccount({ voterName }, { voterID }, { phoneNumber })) {
+					if (loadVoterAccount(voterName, voterID, phoneNumber)) {
 						alert("Voter Login Successful");
 						routeChange();
 					} else {
