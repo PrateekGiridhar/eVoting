@@ -32,10 +32,11 @@ const loadContract = async () => {
 	}
 };
 
+const voterAddress = "0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133";
+
 export const loadVoterAccount = async (votername, voterID, phonenumber) => {
 	const election = await loadContract();
-	const accounts = await window.web3.eth.getAccounts();
-	const voterAddress = accounts[0];
+	// const accounts = await window.web3.eth.getAccounts();
 
 	try {
 		await election.methods
@@ -44,18 +45,21 @@ export const loadVoterAccount = async (votername, voterID, phonenumber) => {
 			.on("transactionhash", () => {
 				window.alert("Login is being processed. Please wait.");
 			});
-		return true;
 	} catch (error) {
 		console.log(error.message);
-		return false;
 	}
 };
 
 export const vote = async (candidateName) => {
 	const election = await loadContract();
-	const accounts = await window.web3.eth.getAccounts();
-	const voterAddress = accounts[0];
-	const voter = await election.voters(voterAddress).call();
+	// const accounts = await window.web3.eth.getAccounts();
+	// const voterAddress = accounts[0];
+	const voter = await election.methods
+	.voters(voterAddress)
+	.call((error, result) => {
+		console.log(result);
+		window.alert(result);
+	});
 
 	if (voter[4] === true) {
 		window.alert(

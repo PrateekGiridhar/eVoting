@@ -140,12 +140,10 @@ const VoterLogin = () => {
 					console.log("User: ", user);
 					alert("Voter verified successfully");
 
-					if (loadVoterAccount(voterName, voterID, phoneNumber)) {
-						alert("Voter Login Successful");
-						routeChange();
-					} else {
-						alert("Voter Login Failed");
-					}
+					loadVoterAccount(voterName, voterID, phoneNumber);
+					alert("Voter Login Successful");
+					routeChange();
+					
 				})
 				.catch((error) => {
 					alert("User not verified please retry again");
