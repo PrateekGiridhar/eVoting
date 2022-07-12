@@ -62,7 +62,7 @@ const Voting = () => {
 			"=>",
 			voterVotedStatus.data().Voted,
 		);
-		if (voterVotedStatus.data().Voted === false) {
+		if (voterVotedStatus.data().Voted === true) {
 			navigate(`/voting-status:completed`);
 		}
 	};
